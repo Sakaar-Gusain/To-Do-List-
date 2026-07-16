@@ -164,14 +164,14 @@ function Login() {
                             )}
 
                             {/* Forgot Password */}
-                            <div className="flex justify-end">
+                            {/*<div className="flex justify-end">
                                 <button
                                     type="button"
                                     className="text-sm text-blue-600 dark:text-blue-300 hover:underline"
                                 >
                                     Forgot Password?
                                 </button>
-                            </div>
+                            </div>*/}
 
                             {/* Login Button */}
                             <button
