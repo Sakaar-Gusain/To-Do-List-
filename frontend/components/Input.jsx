@@ -108,21 +108,23 @@ const TextInput = () => {
 
   return (
     <div>
-      <div className="flex gap-8 w-full p-6">
+      <div className="flex flex-col lg:flex-row gap-8 w-full p-4 md:p-6">
         {/* Left Side */}
-        <div className="w-[40%]">
+        <div className="w-full lg:w-[35%]
+        
+        ">
           <div className="flex flex-col gap-4">
             <textarea
               rows={6}
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Enter your task..."
-              className="w-full rounded-lg border border-gray-300 bg-gray-800 text-white placeholder-gray-400 p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-xl border border-gray-300 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 p-4 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-44"
             />
 
             <button
               onClick={buttonClick}
-              className="self-center rounded-lg bg-blue-600 px-6 py-2 text-white font-medium transition hover:bg-blue-700"
+              className="w-full sm:w-fit self-center rounded-xl bg-blue-600 px-8 py-3 text-white font-semibold shadow-md transition hover:bg-blue-700"
             >
               Add To List
             </button>
@@ -130,19 +132,19 @@ const TextInput = () => {
         </div>
 
         {/* Right Side */}
-        <div className="w-[60%]">
-          <h2 className="mt-2 mb-3 text-xl font-bold text-white">
+        <div className="w-full lg:w-[65%]">
+          <h2 className="mt-2 mb-3 text-xl font-bold text-black dark:text-white">
             Tasks to be completed
           </h2>
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-2">
             {tasks
               .filter((task) => !task.complete_time)
               .map((task) => (
                 <div
                   key={task.id}
-                  className="flex items-center justify-between rounded-lg bg-gray-800 p-4 shadow"
+                  className="flex items-center justify-between rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 shadow-md hover:shadow-lg transition"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 flex-1 min-w-0">
                     <input
                       type="checkbox"
                       checked={!!task.complete_time}
@@ -150,12 +152,12 @@ const TextInput = () => {
                       className="h-5 w-5 accent-green-500 cursor-pointer"
                     />
 
-                    <p className="text-white wrap-break-words">{task.task}</p>
+                    <p className="text-gray-800 dark:text-white wrap-break-words">{task.task}</p>
                   </div>
 
                   <button
                     onClick={() => buttonDel(task.id)}
-                    className="rounded-md bg-red-500 px-3 py-2 text-white hover:bg-red-600"
+                    className="ml-3 shrink-0 rounded-lg bg-red-500 px-3 py-2 text-white shadow hover:bg-red-600 transition"
                   >
                     🗑️
                   </button>
@@ -166,28 +168,28 @@ const TextInput = () => {
       </div>
 
       <div>
-        <h2 className="mt-2 mb-3 mx-3 text-xl font-bold text-white">
+        <h2 className="mt-2 mb-3 mx-3 text-xl font-bold text-black dark:text-white">
           Completed Tasks
         </h2>
-        <div className="grid grid-cols-3 gap-3 mx-3 my-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-3 my-4">
         {tasks
           .filter((task) => task.complete_time)
           .map((task) => (
             <div
               key={task.id}
-              className="flex items-center justify-between rounded-lg bg-green-900/30 p-4"
+              className="flex items-center justify-between rounded-xl bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 p-4 shadow-md"
             >
               <div className="flex items-center gap-3">
                 <input
                   type="checkbox"
                   checked={!!task.complete_time}
                   onChange={() => toggleComplete(task.id)}
-                  className="h-5 w-5 accent-green-500 cursor-pointer"
+                  className="h-5 w-5 accent-green-700 dark:accent-green-500 cursor-pointer"
                 />
 
                 <div>
-                  <p className="text-green-300 line-through">{task.task}</p>
-                  <p className="text-green-500 text-sm">
+                  <p className="text-green-700 dark:text-green-300 line-through">{task.task}</p>
+                  <p className="text-green-600 dark:text-green-300 text-sm">
                     Completed: {formatTime(task.complete_time)}
                   </p>
                 </div>

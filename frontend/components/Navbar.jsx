@@ -2,15 +2,19 @@
 import Theme from "./Theme"
 import Logout from "./Logout"
 import { usePathname } from "next/navigation"
-function NavBar(){
-    const path=usePathname();
-    return(
-     <nav className="flex sticky top-0 z-50 w-full bg-zinc-900 justify-between items-center backdrop-blur-md py-4 px-4 md:py-5 md:px-6 shadow-zinc-950">
-            <div className="bg-linear-to-r  from-[#66a3ff] via-[#3385FF] to-[#0025cc] bg-clip-text text-transparent font-bold sm:text-xl md:text-3xl mt-3 mb-1">To-Do Weekly List</div>
-            
-            <div className=" flex items-center  rounded-full mr-6 gap-10">
-                <Theme/>
-                {path !=="/login"&& path !=="/register"&&<Logout/>}
+function NavBar() {
+    const path = usePathname();
+    return (
+        <nav className="sticky top-0 z-50 flex w-full items-center justify-between border-b border-gray-200 bg-zinc-600/60 px-4 py-3 shadow-md backdrop-blur-lg transition-all duration-300 dark:border-gray-800 dark:bg-zinc-900/80 md:px-8">
+            {/* Logo */}
+            <div className="bg-linear-to-r from-[#66A3FF] via-[#3385FF] to-[#0025CC] bg-clip-text text-xl font-extrabold text-transparent md:text-3xl">
+                To-Do Weekly List
+            </div>
+
+            {/* Right Side */}
+            <div className="flex items-center gap-4 md:gap-6">
+                <Theme />
+                {path !== "/login" && path !== "/register" && <Logout />}
             </div>
         </nav>
     )

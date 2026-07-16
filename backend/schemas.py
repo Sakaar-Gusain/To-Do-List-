@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr,Field
+from pydantic import BaseModel, EmailStr,Field, field_serializer
 from datetime import datetime
 from typing import Optional
 from enum import Enum
@@ -41,6 +41,12 @@ class TaskResponse(BaseModel):
     task: str
     add_time: datetime
     complete_time: Optional[datetime] = None
+
+    @field_serializer("add_time", "complete_time")
+    def serialize_dt(self, dt: Optional[datetime]) -> Optional[str]:
+        if dt is None:
+            return None
+        return dt.isoformat() + "Z"  # marks it explicitly as UTC
 
     class Config:
         from_attributes = True

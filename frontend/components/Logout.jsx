@@ -28,7 +28,7 @@ function Logout() {
             />
 
             {open && (
-                <div className="absolute right-0 mt-3 w-56 rounded-xl bg-black/40 shadow-xl">
+                <div className="absolute right-0 mt-3 w-56 rounded-xl bg-black/70 shadow-xl ">
 
                     <div className="p-4 border-b text-blue-700">
                         {user.gmail}
