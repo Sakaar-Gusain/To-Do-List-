@@ -85,7 +85,7 @@ function Login() {
 
 
     return (
-        <div className="flex flex-col lg:flex-row min-h-[calc(100vh-72px)]">
+        <div className="flex w-full flex-col lg:flex-row  min-h-[calc(100vh-61px)]">
             <div className="hidden lg:flex lg:w-1/2 bg-linear-to-br from-sky-100 via-blue-100 to-indigo-200 dark:from-gray-900 dark:via-slate-900 dark:to-blue-950 items-center justify-center p-10">
                 <div className="text-center">
 
@@ -95,11 +95,11 @@ function Login() {
                         className="max-w-md mx-auto"
                     />
 
-                    <h2 className="text-3xl font-bold text-gray-800 mt-8">
+                    <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-300 mt-8">
                         Organize Your Life
                     </h2>
 
-                    <p className="text-gray-600 mt-4 max-w-md">
+                    <p className="text-gray-600 dark:text-gray-300 mt-4 max-w-md">
                         Create your account and start managing your daily tasks
                         efficiently with your personal to-do planner.
                     </p>
