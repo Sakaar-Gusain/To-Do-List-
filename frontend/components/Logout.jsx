@@ -22,15 +22,15 @@ function Logout() {
     return (
         <div className="relative">
             <FaUserCircle
-                size={34}
-                className="text-white cursor-pointer"
+                size={30}
+                className="text-white cursor-pointer hover:text-gray-300"
                 onClick={() => setOpen(!open)}
             />
 
             {open && (
-                <div className="absolute right-0 mt-3 w-56 rounded-xl bg-black/70 shadow-xl ">
+                <div className="absolute right-0 mt-4 w-56 rounded-xl bg-black/85 shadow-xl ">
 
-                    <div className="p-4 border-b text-blue-700">
+                    <div className="p-4 border-b text-blue-800">
                         {user.gmail}
                     </div>
 

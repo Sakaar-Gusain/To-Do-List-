@@ -29,7 +29,7 @@ export default function Intro() {
 
     return (
         <div className="flex flex-col items-center gap-6 px-4 py-8 sm:py-12">
-            <h1 className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold bg-linear-to-r from-indigo-600 via-purple-500 to-pink-500 bg-clip-text text-transparent">Choose day for interest</h1>
+            <h1 className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold bg-linear-to-r from-indigo-600 via-purple-500 to-pink-500 bg-clip-text text-transparent py-2">Choose day for interest</h1>
             <div className="flex flex-col gap-4 w-full max-w-lg">
                 {days.map((day) => (
                     <button
